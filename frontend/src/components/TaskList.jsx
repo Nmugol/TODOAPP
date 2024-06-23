@@ -4,7 +4,7 @@ import Task from "./task";
 const TaskList = ({tasks}) => {
 
     return (
-        <div>
+        <div className="task-list">
             {tasks.map((task) => (
                 <Task task={task}></Task>
             ))}

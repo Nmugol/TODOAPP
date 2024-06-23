@@ -1,3 +1,178 @@
-.task-completed{
-    color: brown;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+:root {
+
+    --bg-color: #C7C2E7;
+    --bg-color2: #faf8ff;
+    --bg-color3: #e3e0f3;
+
+    --text-color: #000;
+    --text-color2: #333;
+
+    --accept-color: #00ff84;
+    --delete-color: #ff3b3b;
+    --cancel-color: #ffdf82;
+    --edit-color: #00d3f7;
+
+    --font: 'Ubuntu', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: var(--font);
+    background-color: #FAF8FF;
+}
+
+button,
+input {
+    border: none;
+    text-decoration: none;
+    border-radius: 2rem;
+    padding: 0.5rem;
+
+    -webkit-box-shadow: 0px 2px 3px -2px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 2px 3px -2px rgba(66, 68, 90, 1);
+    box-shadow: 0px 2px 3px -2px rgba(66, 68, 90, 1);
+}
+
+button {
+    font-size: 1.5rem;
+    background-color: var(--bg-color3);
+}
+
+input {
+    background-color: var(--bg-color2);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.App {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    gap: 0.5rem;
+}
+
+
+.add-task {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+    padding: 0.5rem 0;
+
+
+
+    input {
+        width: 24rem;
+        margin-right: 0.1rem;
+    }
+
+    button {
+        width: 6rem;
+        margin-left: 0.1rem;
+    }
+
+    button:hover {
+        background-color: var(--accept-color);
+    }
+}
+
+.task-list {
+    width: 900px;
+    display: grid;
+    gap: 0.8rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.task {
+    display: grid;
+    grid-template-columns: 1fr 3rem 3rem 3rem;
+    gap: 0.5rem;
+
+    align-items: center;
+
+    .task-title {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    input {
+        width: 90%;
+
+    }
+
+    .delete:hover {
+        background-color: var(--delete-color);
+    }
+
+    .edit:hover {
+        background-color: var(--edit-color);
+    }
+
+    .complete:hover {
+        background-color: var(--accept-color);
+    }
+
+    .cancel_button:hover {
+        background-color: var(--delete-color);
+    }
+
+    .save_button:hover {
+        background-color: var(--accept-colori);
+    }
+
+    .open {
+        animation: slideIn 0.3s forwards;
+
+    }
+
+    .hidden {
+        display: none;
+        animation: slideOut 0.3s forwards;
+    }
+
+    .task-completed {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+        display: none;
+        visibility: none;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        display: block;
+        visibility: visible;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        display: block;
+    }
+
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+        display: none;
+        visibility: none;
+    }
 }
